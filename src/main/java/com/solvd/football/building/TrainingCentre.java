@@ -2,7 +2,8 @@ package com.solvd.football.building;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.solvd.football.interfaces.IAttendable;
+
+import com.solvd.football.inteerface.IAttendable;
 
 public class TrainingCentre extends Building implements IAttendable {
 	Logger LOGGER = LogManager.getLogger(TrainingCentre.class);

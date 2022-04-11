@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.solvd.football.exception.IncorrectAwayStrikerException;
 import com.solvd.football.human.Player;
-import com.solvd.football.interfaces.ICheerable;
+import com.solvd.football.inteerface.ICheerable;
 
 
 public class AwayTeam extends Team implements ICheerable {

@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.solvd.football.interfaces.IAttendable;
+
+import com.solvd.football.inteerface.IAttendable;
 
 public class Stadium extends Building implements IAttendable {
 	

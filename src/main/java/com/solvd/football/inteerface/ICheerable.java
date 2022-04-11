@@ -1,7 +1,7 @@
-package com.solvd.football.interfaces;
+package com.solvd.football.inteerface;
 
 public interface ICheerable {
-	
+
 	String FANS = "THE FANS";
 
 	void cheer();

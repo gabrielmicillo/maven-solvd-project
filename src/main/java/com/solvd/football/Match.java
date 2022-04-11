@@ -8,7 +8,7 @@ import com.solvd.football.exception.IncorrectAwayStrikerException;
 import com.solvd.football.exception.IncorrectFormation;
 import com.solvd.football.human.Coach;
 import com.solvd.football.human.Referee;
-import com.solvd.football.interfaces.IPlayable;
+import com.solvd.football.inteerface.IPlayable;
 import com.solvd.football.team.HomeTeam;
 import com.solvd.football.team.AwayTeam;
 import com.solvd.football.building.Stadium;
@@ -62,6 +62,9 @@ public class Match implements IPlayable {
 		tacticsList.insert(playType);
 		LOGGER.info("Your tactics will be:");
 		tacticsList.show();
+		
+		PlayableDay sat = PlayableDay.SATURDAY;
+		LOGGER.info("This match will be played on " + sat.randomPlayableDay() + ".");
 		
 		LOGGER.info("Type 0 if you want to see the available players and their nationalities. Type any other NUMBER to continue.");
 		Scanner firstChoice = new Scanner (System.in);

@@ -2,9 +2,10 @@ package com.solvd.football.human;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.solvd.football.interfaces.ICheerable;
-import com.solvd.football.interfaces.ISanctionable;
-import com.solvd.football.interfaces.ITrainable;
+
+import com.solvd.football.inteerface.ICheerable;
+import com.solvd.football.inteerface.ISanctionable;
+import com.solvd.football.inteerface.ITrainable;
 
 public class Player extends Human implements ITrainable , ISanctionable , ICheerable {
 	private int skillLevel;

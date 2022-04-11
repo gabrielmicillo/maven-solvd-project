@@ -3,7 +3,8 @@ package com.solvd.football.human;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.solvd.football.interfaces.ISanctionable;
+
+import com.solvd.football.inteerface.ISanctionable;
 
 public class Coach extends Human implements ISanctionable {
 	int playersManaged;
