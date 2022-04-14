@@ -63,6 +63,11 @@ public class Match implements IPlayable {
 		LOGGER.info("Your tactics will be:");
 		tacticsList.show();
 		
+		PlayableDay[] playableDay = PlayableDay.values();
+		for(int i = 0; i < playableDay.length; i++) {
+			LOGGER.info(playableDay[i]);
+		}
+		
 		PlayableDay sat = PlayableDay.SATURDAY;
 		LOGGER.info("This match will be played on " + sat.randomPlayableDay() + ".");
 		
