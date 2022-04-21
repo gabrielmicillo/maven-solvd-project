@@ -9,34 +9,41 @@ import com.solvd.football.inteerface.ITrainable;
 
 public class Player extends Human implements ITrainable , ISanctionable , ICheerable {
 	private int skillLevel;
-	int trainingLevel = 90;
-	int foulsCommited = 2;
+	private int fitnessLevel;
+	int foulsCommited;
 	
 	public Player() {
 	}
 	
-	public Player(String name, int age, String country, int skillLevel) {
-		super(name, age, country);
+	public Player(String name, int age, String country, String effort, boolean agent, int skillLevel, int fitnessLevel, int foulsCommited) {
+		super(name, age, country, effort, agent);
 		this.setSkillLevel(skillLevel);
+		this.setFitnessLevel(fitnessLevel);
 	}
 	
 	Logger LOGGER = LogManager.getLogger(Player.class);
 	
 	@Override
-	public String physicalEffort() {
-		String effort = "high";
-		return effort;
+	public void physicalEffort() {
+		if (effort == "middle") {
+			fitnessLevel =- 10;
+		} else if (effort == "high") {
+			fitnessLevel =- 20;
+		}
 	}
 
 	@Override
-	public boolean hasAgent() {
-		boolean agent = true;
-		return agent;
+	public void hasAgent() {
+		if (agent == true) {
+			LOGGER.info("You have to negotiate this player's salary with his agent.");
+		} else {
+			LOGGER.info("You have to negotiate this players's salary with himself.");
+		}
 	}
 
 	@Override
 	public void trainingLevel() {
-		if (MIN_FITNESS > trainingLevel) {
+		if (MIN_FITNESS > fitnessLevel) {
 			LOGGER.info("Player is not fit for the match.");
 		} else {
 			LOGGER.info("Player is fit for the match.");
@@ -66,5 +73,21 @@ public class Player extends Human implements ITrainable , ISanctionable , ICheer
 
 	public void setSkillLevel(int skillLevel) {
 		this.skillLevel = skillLevel;
+	}
+	
+	public int getFitnessLevel() {
+		return fitnessLevel;
+	}
+
+	public void setFitnessLevel(int fitnessLevel) {
+		this.fitnessLevel = fitnessLevel;
+	}
+	
+	public int getFoulsCommited() {
+		return foulsCommited;
+	}
+
+	public void setFoulsCommited(int foulsCommited) {
+		this.foulsCommited = foulsCommited;
 	}
 }

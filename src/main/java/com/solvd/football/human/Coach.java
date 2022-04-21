@@ -8,14 +8,15 @@ import com.solvd.football.inteerface.ISanctionable;
 
 public class Coach extends Human implements ISanctionable {
 	int playersManaged;
-	int complains = 2;
+	int complains;
 	
 	public Coach() {
 	}
 	
-	public Coach(String name, int age, String country, int playersManaged) {
-		super(name, age, country);
+	public Coach(String name, int age, String country, String effort, boolean agent, int playersManaged, int complains) {
+		super(name, age, country, effort, agent);
 		this.playersManaged = playersManaged;
+		this.complains = complains;	
 	}
 	
 	Logger LOGGER = LogManager.getLogger(Coach.class);
@@ -28,15 +29,17 @@ public class Coach extends Human implements ISanctionable {
 	}
 
 	@Override
-	public String physicalEffort() {
-		String effort = "low";
-		return effort;
+	public void physicalEffort() {
+		LOGGER.info("Coaches do not make any physical effort.");
 	}
 
 	@Override
-	public boolean hasAgent() {
-		boolean agent = true;
-		return agent;
+	public void hasAgent() {
+		if (agent == true) {
+			LOGGER.info("You have to negotiate this coach's salary with his agent.");
+		} else {
+			LOGGER.info("You have to negotiate this coach's salary with himself.");
+		}
 	}
 
 	@Override

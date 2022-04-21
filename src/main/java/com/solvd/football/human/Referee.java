@@ -8,46 +8,77 @@ import org.apache.logging.log4j.Logger;
 import com.solvd.football.inteerface.ITrainable;
 
 public class Referee extends Human implements ITrainable {
-	int yellowCards;
-	int redCards;
-	int trainingLevel = 75;
+	private int yellowCards;
+	private int redCards;
+	private int fitnessLevel;
 	
 	Logger LOGGER = LogManager.getLogger(Referee.class);
 	
 	public Referee() {
 	}
 
-	public Referee(String name, int age, String country, int yellowCards, int redCards) {
-		super(name, age, country);
+	public Referee(String name, int age, String country, String effort, boolean agent, int yellowCards, int redCards, int fitnessLevel) {
+		super(name, age, country, effort, agent);
 		this.yellowCards = yellowCards;
+		this.redCards = redCards;
+		this.fitnessLevel = fitnessLevel;
+	}
+	
+	public int getYellowCards() {
+		return yellowCards;
+	}
+
+	public void setYellowCards(int yellowCards) {
+		this.yellowCards = yellowCards;
+	}
+	
+	public int getRedCards() {
+		return redCards;
+	}
+
+	public void setRedCards(int redCards) {
 		this.redCards = redCards;
 	}
 	
-	public void randomReferee() {
-		ArrayList<String> refereeArrayList = new ArrayList<>();
-		refereeArrayList.add("Pierluigi Collina");
-		refereeArrayList.add("Howard Webb");
-		refereeArrayList.add("Horacio Elizondo");
-		Random random = new Random();
-		int givenReferee = random.nextInt(3);
-		LOGGER.info("The assigned referee for this match will be: " + refereeArrayList.get(givenReferee) + ".");
+	public int getFitnessLevel() {
+		return fitnessLevel;
+	}
+
+	public void setFitnessLevel(int fitnessLevel) {
+		this.fitnessLevel = fitnessLevel;
+	}
+	
+//	public void randomReferee() {
+//		ArrayList<String> refereeArrayList = new ArrayList<>();
+//		refereeArrayList.add("Pierluigi Collina");
+//		refereeArrayList.add("Howard Webb");
+//		refereeArrayList.add("Horacio Elizondo");
+//		Random random = new Random();
+//		int givenReferee = random.nextInt(3);
+//		LOGGER.info("The assigned referee for this match will be: " + refereeArrayList.get(givenReferee) + ".");
+//	}
+
+	@Override
+	public void physicalEffort() {
+		if (effort == "middle") {
+			fitnessLevel =- 10;
+		} else if (effort == "high") {
+			fitnessLevel =- 20;
+		}
 	}
 
 	@Override
-	public String physicalEffort() {
-		String effort = "middle";
-		return effort;
-	}
-
-	@Override
-	public boolean hasAgent() {
-		boolean agent = false;
-		return agent;
+	public void hasAgent() {
+		if (agent == true) {
+			LOGGER.info("You have to negotiate this referee's salary with his agent.");
+		} else {
+			LOGGER.info("You have to negotiate this referee's salary with himself.");
+		}
 	}
 
 	@Override
 	public void trainingLevel() {
-		if (MIN_FITNESS > trainingLevel) {
+		if (MIN_FITNESS > fitnessLevel) {
 			LOGGER.info("Referee is not fit for the match.");
 		} else {
 			LOGGER.info("Referee is fit for the match.");
