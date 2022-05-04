@@ -18,6 +18,6 @@ public abstract class Building {
 	public int getCrowd() {
 		return this.crowd;
 	}
-	
+
 	public abstract boolean hasCrowd();
 }

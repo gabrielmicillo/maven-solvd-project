@@ -1,12 +1,7 @@
 package com.solvd.football.collection;
 
-import java.util.HashMap;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-
 public class CountryMap {
-	
+
 //	Logger LOGGER = LogManager.getLogger(CountryMap.class);
 //	
 //	public void countries() {

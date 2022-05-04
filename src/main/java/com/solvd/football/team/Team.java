@@ -1,21 +1,21 @@
 package com.solvd.football.team;
 
 public abstract class Team {
-	
+
 	protected int employeesQuantity;
 	protected String uniform;
 
 //	int players;
 //	int index;
-	
+
 	public Team() {
 	}
-	
+
 	public Team(int employeesQuantity, String uniform) {
 		this.employeesQuantity = employeesQuantity;
 		this.uniform = uniform;
 	}
-	
+
 	public int getEmployeesQuantity() {
 		return employeesQuantity;
 	}
@@ -36,7 +36,8 @@ public abstract class Team {
 //		this.players = players;
 //		this.index = index;
 //	}
-	
+
 	public abstract int wages();
+
 	public abstract void kit();
 }

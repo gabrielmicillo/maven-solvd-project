@@ -2,6 +2,7 @@ package com.solvd.football.human;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,18 +13,21 @@ public class Referee extends Human implements ITrainable {
 	private int redCards;
 	private int fitnessLevel;
 	
+	public static ArrayList<Referee> refereeArrayList = new ArrayList<>();
+
 	Logger LOGGER = LogManager.getLogger(Referee.class);
-	
+
 	public Referee() {
 	}
 
-	public Referee(String name, int age, String country, String effort, boolean agent, int yellowCards, int redCards, int fitnessLevel) {
+	public Referee(String name, int age, String country, String effort, boolean agent, int yellowCards, int redCards,
+			int fitnessLevel) {
 		super(name, age, country, effort, agent);
 		this.yellowCards = yellowCards;
 		this.redCards = redCards;
 		this.fitnessLevel = fitnessLevel;
 	}
-	
+
 	public int getYellowCards() {
 		return yellowCards;
 	}
@@ -31,7 +35,7 @@ public class Referee extends Human implements ITrainable {
 	public void setYellowCards(int yellowCards) {
 		this.yellowCards = yellowCards;
 	}
-	
+
 	public int getRedCards() {
 		return redCards;
 	}
@@ -39,7 +43,7 @@ public class Referee extends Human implements ITrainable {
 	public void setRedCards(int redCards) {
 		this.redCards = redCards;
 	}
-	
+
 	public int getFitnessLevel() {
 		return fitnessLevel;
 	}
@@ -47,7 +51,7 @@ public class Referee extends Human implements ITrainable {
 	public void setFitnessLevel(int fitnessLevel) {
 		this.fitnessLevel = fitnessLevel;
 	}
-	
+
 //	public void randomReferee() {
 //		ArrayList<String> refereeArrayList = new ArrayList<>();
 //		refereeArrayList.add("Pierluigi Collina");
@@ -61,9 +65,9 @@ public class Referee extends Human implements ITrainable {
 	@Override
 	public void physicalEffort() {
 		if (effort == "middle") {
-			fitnessLevel =- 10;
+			fitnessLevel = -10;
 		} else if (effort == "high") {
-			fitnessLevel =- 20;
+			fitnessLevel = -20;
 		}
 	}
 
@@ -83,7 +87,15 @@ public class Referee extends Human implements ITrainable {
 		} else {
 			LOGGER.info("Referee is fit for the match.");
 		}
-		
+
+	}
+	
+	public void selectRandomReferee() {
+		Random randomReferee = new Random();
+		int givenReferee = randomReferee.nextInt(3);
+		LOGGER.info("The assigned referee for this match will be: " + refereeArrayList.get(givenReferee).getName()
+				+ ".");
+		refereeArrayList.get(givenReferee).trainingLevel();
 	}
 
 }

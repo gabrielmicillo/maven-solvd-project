@@ -9,23 +9,25 @@ import com.solvd.football.inteerface.ISanctionable;
 public class Coach extends Human implements ISanctionable {
 	int playersManaged;
 	int complains;
-	
+
 	public Coach() {
 	}
-	
-	public Coach(String name, int age, String country, String effort, boolean agent, int playersManaged, int complains) {
+
+	public Coach(String name, int age, String country, String effort, boolean agent, int playersManaged,
+			int complains) {
 		super(name, age, country, effort, agent);
 		this.playersManaged = playersManaged;
-		this.complains = complains;	
+		this.complains = complains;
 	}
-	
+
 	Logger LOGGER = LogManager.getLogger(Coach.class);
-	
+
 	public void nameCoach() {
 		LOGGER.info("Write your full name, please.");
-		Scanner sc = new Scanner(System.in);
-		name = "COACH " + sc.nextLine();
+		Scanner input = new Scanner(System.in);
+		name = "COACH " + input.nextLine();
 		LOGGER.info("You are " + name + ".");
+
 	}
 
 	@Override

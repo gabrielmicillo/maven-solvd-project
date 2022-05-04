@@ -1,19 +1,13 @@
 package com.solvd.football.team;
 
-import java.util.ArrayList;
-import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.solvd.football.exception.IncorrectAwayStrikerException;
-import com.solvd.football.exception.IncorrectGoalkeeper;
-import com.solvd.football.human.Player;
 import com.solvd.football.inteerface.ICheerable;
 
-
 public class AwayTeam extends Team implements ICheerable {
-	
+
 	private int distanceToStadium;
-	
+
 	public AwayTeam() {
 	}
 
@@ -21,7 +15,7 @@ public class AwayTeam extends Team implements ICheerable {
 		super(employeesQuantity, uniform);
 		this.distanceToStadium = distanceToStadium;
 	}
-	
+
 	public int getDistanceToStadium() {
 		return distanceToStadium;
 	}
@@ -37,7 +31,7 @@ public class AwayTeam extends Team implements ICheerable {
 //	Player pato = new Player("Roberto Abbondanzieri", 35, "Arg", "high", true, 0, 90, 0);
 //	Player neuer = new Player("Manuel Neuer", 40, "Ger", "high", true, 1, 90, 7);
 //	Player kudravets = new Player("Andrey Kudravets", 35, "Blr", "high", true, 2, 90, 2);
-	
+
 //	public int awayGoals() throws IncorrectAwayStrikerException {
 //		
 //		ArrayList<Integer> strikerGoalArrayList = new ArrayList<>();
@@ -49,12 +43,12 @@ public class AwayTeam extends Team implements ICheerable {
 //		enemyStrikersArrayList.add(rooney);
 //		enemyStrikersArrayList.add(eto);
 //		enemyStrikersArrayList.add(salah);
-		
+
 //		ArrayList<String> enemyStrikerArrayList = new ArrayList<>();
 //		enemyStrikerArrayList.add("0-Wayne Rooney");
 //		enemyStrikerArrayList.add("1-Samuel Eto'o");
 //		enemyStrikerArrayList.add("2-Mohamed Salah");
-		
+
 //		LOGGER.info("Choose enemy striker. Type 0 for Rooney, 1 for Eto'o or 2 for Salah.");
 //		LOGGER.info("These are the strikers available:");
 //		LOGGER.info(enemyStrikerArrayList);
@@ -66,7 +60,7 @@ public class AwayTeam extends Team implements ICheerable {
 //		}
 //		
 //		index = enemyStrikersArrayList.get(chosedEnemyStriker).getSkillLevel();
-		
+
 //		if (chosedEnemyStriker == 0){
 //			LOGGER.info("Wayne Rooney is enemy's striker.");
 //			index = rooney.getSkillLevel();
@@ -85,9 +79,9 @@ public class AwayTeam extends Team implements ICheerable {
 //		int positiveAwayTeamGoals = strikerGoalArrayList.get(index);
 //		return positiveAwayTeamGoals;
 //		}
-	
+
 //	public int awaySavedGoals() {
-		
+
 //		ArrayList<Integer> goalkeeperGoalArrayList = new ArrayList<>();
 //		goalkeeperGoalArrayList.add(3);
 //		goalkeeperGoalArrayList.add(2);
@@ -97,12 +91,12 @@ public class AwayTeam extends Team implements ICheerable {
 //		goalkeepersArrayList.add(pato);
 //		goalkeepersArrayList.add(neuer);
 //		goalkeepersArrayList.add(kudravets);
-		
+
 //		ArrayList<String> goalkeeperArrayList = new ArrayList<>();
 //		goalkeeperArrayList.add("0-Roberto Abbondanzieri");
 //		goalkeeperArrayList.add("1-Manuel Neuer");
 //		goalkeeperArrayList.add("2-Andrey Kudravets");
-		
+
 //		LOGGER.info("Choose the enemy goalkeeper. Type 0 for Abbondanzieri, 1 for Neuer or 2 for Kudravets.");
 //		LOGGER.info("These are the goalkeepers available:");
 //		LOGGER.info(goalkeeperArrayList);
@@ -114,7 +108,7 @@ public class AwayTeam extends Team implements ICheerable {
 //		}
 //		
 //		index = goalkeepersArrayList.get(chosedGoalkeeper).getSkillLevel();
-		
+
 //		if (chosedGoalkeeper == 0){
 //			LOGGER.info("Roberto Abbondanzieri is enemy's goalkeeper.");
 //			index = pato.getSkillLevel();
@@ -129,7 +123,7 @@ public class AwayTeam extends Team implements ICheerable {
 //		} else {
 //			throw new RuntimeException("Wrong choice. Try again.");
 //		}
-		
+
 //		int awayTeamSavedGoals = goalkeeperGoalArrayList.get(index);
 //		return awayTeamSavedGoals;
 //	}
@@ -143,7 +137,7 @@ public class AwayTeam extends Team implements ICheerable {
 	@Override
 	public void cheer() {
 		LOGGER.info(FANS + " are cheering for this team!");
-		
+
 	}
 
 	@Override
@@ -157,7 +151,8 @@ public class AwayTeam extends Team implements ICheerable {
 		if (uniform == "1st") {
 			LOGGER.info("Away Team can use his 1st uniform because it doesn't look similar to home team's.");
 		} else {
-			LOGGER.info("Away Team has to use 2nd uniform because the colors of their main uniform matches the local team's.");
+			LOGGER.info(
+					"Away Team has to use 2nd uniform because the colors of their main uniform matches the local team's.");
 		}
 	}
 }

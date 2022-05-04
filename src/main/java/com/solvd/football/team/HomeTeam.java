@@ -1,20 +1,18 @@
 package com.solvd.football.team;
 
-import java.util.ArrayList;
 import java.util.Scanner;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.solvd.football.exception.IncorrectGoalkeeper;
-import com.solvd.football.exception.IncorrectHomeStrikerException;
-import com.solvd.football.human.Player;
+import com.solvd.football.collection.CustomLinkedList;
+import com.solvd.football.exception.IncorrectFormationException;
 import com.solvd.football.inteerface.ICheerable;
 
-
 public class HomeTeam extends Team implements ICheerable {
-	
+
 	private boolean loyalFans;
-	
+
 	public HomeTeam() {
 	}
 
@@ -22,7 +20,7 @@ public class HomeTeam extends Team implements ICheerable {
 		super(employeesQuantity, uniform);
 		this.loyalFans = loyalFans;
 	}
-	
+
 	public boolean isLoyalFans() {
 		return loyalFans;
 	}
@@ -38,7 +36,7 @@ public class HomeTeam extends Team implements ICheerable {
 //	Player cech = new Player("Petr Cech", 35, "Cze", "high", true, 0, 90, 0);
 //	Player edwin = new Player("Edwin van der Sar", 40, "Ned", "high", true, 1, 90, 5);
 //	Player casillas = new Player("Iker Casillas", 35, "Esp", "high", true, 2, 90, 4);
-	
+
 //	public int homeGoals() throws IncorrectHomeStrikerException {
 //		
 //		ArrayList<Integer> strikerGoalArrayList = new ArrayList<>();
@@ -50,12 +48,12 @@ public class HomeTeam extends Team implements ICheerable {
 //		strikersArrayList.add(messi);
 //		strikersArrayList.add(cristiano);
 //		strikersArrayList.add(hleb);
-		
+
 //		ArrayList<String> strikerArrayList = new ArrayList<>();
 //		strikerArrayList.add("0-Lionel Messi");
 //		strikerArrayList.add("1-Cristiano Ronaldo");
 //		strikerArrayList.add("2-Aliaksandr Hleb");
-		
+
 //		LOGGER.info("Choose your striker. Type 0 for Messi, 1 for Cristiano Ronaldo or 2 for Aliaksandr Hleb.");
 //		LOGGER.info("These are the strikers available:");
 //		LOGGER.info(strikerArrayList);
@@ -67,7 +65,7 @@ public class HomeTeam extends Team implements ICheerable {
 //		}
 //		
 //		index = strikersArrayList.get(chosedStriker).getSkillLevel();
-		
+
 //		if (chosedStriker == 0){
 //			LOGGER.info("Lionel Messi is your striker.");
 //			index = messi.getSkillLevel();
@@ -79,8 +77,7 @@ public class HomeTeam extends Team implements ICheerable {
 //			LOGGER.info("Aliaksandr Hleb is your striker.");
 //			index = hleb.getSkillLevel();
 //		} 
-	
-		
+
 //		int positiveHomeTeamGoals = strikerGoalArrayList.get(index);
 //		return positiveHomeTeamGoals;
 //	}
@@ -96,12 +93,12 @@ public class HomeTeam extends Team implements ICheerable {
 //		goalkeepersArrayList.add(cech);
 //		goalkeepersArrayList.add(edwin);
 //		goalkeepersArrayList.add(casillas);
-		
+
 //		ArrayList<String> goalkeeperArrayList = new ArrayList<>();
 //		goalkeeperArrayList.add("0-Petr Cech");
 //		goalkeeperArrayList.add("1-Edwin Van der Sar");
 //		goalkeeperArrayList.add("2-Iker Casillas");
-		
+
 //		LOGGER.info("Choose your goalkeeper. Type 0 for Cech, 1 for van der Sar or 2 for Casillas.");
 //		LOGGER.info("These are the goalkeepers available:");
 //		LOGGER.info(goalkeeperArrayList);
@@ -114,7 +111,7 @@ public class HomeTeam extends Team implements ICheerable {
 //		
 //		
 //		index = goalkeepersArrayList.get(chosedGoalkeeper).getSkillLevel();
-		
+
 //		if (chosedGoalkeeper == 0){
 //			LOGGER.info("Petr Cech is your goalkeeper.");
 //			index = cech.getSkillLevel();
@@ -129,7 +126,7 @@ public class HomeTeam extends Team implements ICheerable {
 //		} else {
 //			throw new RuntimeException("Wrong choice. Try again.");
 //		}
-		
+
 //		int homeTeamSavedGoals = goalkeeperGoalArrayList.get(index);
 //		return homeTeamSavedGoals;
 //	}
@@ -154,9 +151,31 @@ public class HomeTeam extends Team implements ICheerable {
 	@Override
 	public void kit() {
 		if (uniform == "1st") {
-			LOGGER.info("Home Team choses to use his main uniform to play with their colors.");
+			LOGGER.info("Home Team chooses to use his main uniform to play with their colors.");
 		} else {
-			LOGGER.info("Home Team decides to let visitors play with their main uniform and uses his second uniform, as a sign of courtesy.");
+			LOGGER.info(
+					"Home Team decides to let visitors play with their main uniform and uses his second uniform, as a sign of courtesy.");
 		}
 	}
+
+	public void formation() throws IncorrectFormationException {
+		Scanner input = new Scanner(System.in);
+		LOGGER.info(
+				"Select your formation. Send your number of defenders, then your number of midfielders and then your number of strikers. The total must be 10.");
+
+		int defenders = input.nextInt();
+		int midfielders = input.nextInt();
+		int strikers = input.nextInt();
+		if ((defenders + midfielders + strikers) != 10) {
+			throw new IncorrectFormationException();
+		}
+
+		CustomLinkedList<Integer> formationList = new CustomLinkedList<>();
+		formationList.insert(defenders);
+		formationList.insert(midfielders);
+		formationList.insert(strikers);
+		LOGGER.info("Your formation on the field will be:");
+		formationList.show();
+	}
+
 }

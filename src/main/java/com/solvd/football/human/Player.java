@@ -7,28 +7,29 @@ import com.solvd.football.inteerface.ICheerable;
 import com.solvd.football.inteerface.ISanctionable;
 import com.solvd.football.inteerface.ITrainable;
 
-public class Player extends Human implements ITrainable , ISanctionable , ICheerable {
+public class Player extends Human implements ITrainable, ISanctionable, ICheerable {
 	private int skillLevel;
 	private int fitnessLevel;
 	int foulsCommited;
-	
+
 	public Player() {
 	}
-	
-	public Player(String name, int age, String country, String effort, boolean agent, int skillLevel, int fitnessLevel, int foulsCommited) {
+
+	public Player(String name, int age, String country, String effort, boolean agent, int skillLevel, int fitnessLevel,
+			int foulsCommited) {
 		super(name, age, country, effort, agent);
 		this.setSkillLevel(skillLevel);
 		this.setFitnessLevel(fitnessLevel);
 	}
-	
+
 	Logger LOGGER = LogManager.getLogger(Player.class);
-	
+
 	@Override
 	public void physicalEffort() {
 		if (effort == "middle") {
-			fitnessLevel =- 10;
+			fitnessLevel = -10;
 		} else if (effort == "high") {
-			fitnessLevel =- 20;
+			fitnessLevel = -20;
 		}
 	}
 
@@ -48,7 +49,7 @@ public class Player extends Human implements ITrainable , ISanctionable , ICheer
 		} else {
 			LOGGER.info("Player is fit for the match.");
 		}
-		
+
 	}
 
 	@Override
@@ -59,7 +60,7 @@ public class Player extends Human implements ITrainable , ISanctionable , ICheer
 			LOGGER.info("This player receives a " + RED_CARD + ".");
 			LOGGER.info("He has to go!");
 		}
-		
+
 	}
 
 	@Override
@@ -74,7 +75,7 @@ public class Player extends Human implements ITrainable , ISanctionable , ICheer
 	public void setSkillLevel(int skillLevel) {
 		this.skillLevel = skillLevel;
 	}
-	
+
 	public int getFitnessLevel() {
 		return fitnessLevel;
 	}
@@ -82,7 +83,7 @@ public class Player extends Human implements ITrainable , ISanctionable , ICheer
 	public void setFitnessLevel(int fitnessLevel) {
 		this.fitnessLevel = fitnessLevel;
 	}
-	
+
 	public int getFoulsCommited() {
 		return foulsCommited;
 	}
