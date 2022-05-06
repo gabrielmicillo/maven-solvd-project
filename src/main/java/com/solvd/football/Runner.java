@@ -185,6 +185,8 @@ public class Runner {
             Object homeCoachInstruction = new Object();
             Object awayCoachInstruction = new Object();
 
+
+//          deadlock: this sould be earlier on the program but i put it at last to not interfere with the rest of it
             FirstHalf firstHalf = new FirstHalf(homeCoachInstruction, awayCoachInstruction);
             firstHalf.start();
             SecondHalf secondHalf = new SecondHalf(homeCoachInstruction, awayCoachInstruction);
