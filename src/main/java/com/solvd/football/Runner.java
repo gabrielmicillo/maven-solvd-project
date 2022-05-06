@@ -164,6 +164,7 @@ public class Runner {
                 borisov.incorrectVenue();
             }
 
+//          it wont let me apply the correction of Sergei because it says it needs to be instantiated
             Weather win = Weather.WINDY;
             LOGGER.info(win.randomWeather());
 
