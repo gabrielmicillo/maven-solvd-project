@@ -164,7 +164,7 @@ public class Runner {
                 borisov.incorrectVenue();
             }
 
-//          it wont let me apply the correction of Sergei because it says it needs to be instantiated
+//          it won't let me apply the correction of Sergei because it says it needs to be instantiated
             Weather win = Weather.WINDY;
             LOGGER.info(win.randomWeather());
 
@@ -186,7 +186,7 @@ public class Runner {
             Object awayCoachInstruction = new Object();
 
 
-//          deadlock: this sould be earlier on the program but i put it at last to not interfere with the rest of it
+//          deadlock: this should be earlier on the program, but I put it at last to not interfere with the rest of it
             FirstHalf firstHalf = new FirstHalf(homeCoachInstruction, awayCoachInstruction);
             firstHalf.start();
             SecondHalf secondHalf = new SecondHalf(homeCoachInstruction, awayCoachInstruction);
